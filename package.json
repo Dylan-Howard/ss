@@ -1,15 +1,15 @@
 {
-  "name": "agnes",
+  "name": "Typhoon-Web",
   "version": "1.0.0",
-  "description": "Agnes Template",
-  "author": "Pasquale Vitiello <pasqualevitiello@gmail.com>",
+  "description": "Landing Page for Typhoon project",
+  "author": "Dylan Howard",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://bitbucket.org/pasqualevitiello/agnes.git"
+    "url": "http://dylanhoward.me/typhoonweb"
   },
   "bugs": {
-    "url": "https://bitbucket.org/pasqualevitiello/agnes/issues"
+    "url": "https://dylanhoward.me/typhoonweb"
   },
   "scripts": {
     "clean": "rimraf dist/{css/*,js/*,images/*}",
@@ -49,6 +49,6 @@
     "stylelint": "^9.4.0",
     "uglify-es": "^3.3.10"
   },
-  "homepage": "https://bitbucket.org/pasqualevitiello/agnes#readme",
+  "homepage": "http://dylanhoward.me/typhoonweb",
   "main": ".eslintrc.js"
 }
