@@ -9,12 +9,13 @@
         left: 0;
         width: 100%;
         height: 200px;
-        background: color(typography, 1);
+        background: color(typography, 1i);
         overflow: hidden;
     }
 
     .section-title {
-        margin-bottom: 48px;
+        color: color(typography,1i);
+        margin-bottom: 16px;
     }
 }
 
@@ -74,11 +75,11 @@
     @if ( get-font-family(heading) != get-font-family(base) ) {
         @include font-family(heading);
     }
-    color: color(typography, 1);
+    color: color(typography, 1i);
 }
 
 .pricing-table-price-currency {
-    color: color(typography, 2);
+    color: color(typography, 2i);
 }
 
 .pricing-table-features {

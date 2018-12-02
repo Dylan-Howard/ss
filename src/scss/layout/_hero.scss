@@ -1,95 +1,85 @@
 .hero {
+    display: flex;
     position: relative;
     text-align: center;
     padding-top: 40px;
+    z-index: 1;
+    height: 80vh;
 
     &::before {
         content: '';
         position: absolute;
+        top: 0;
         bottom: 0;
+        left: 0;
         right: 0;
-        height: 230px;
-        width: 80%;
+        height: 100%;
+        width: 100%;
         background: mix(color(primary, 1), color(primary, 2));
-        background: linear-gradient(to top right, color(primary, 1) 0, color(primary, 2) 100%);
+        background: url('../images/head.jpg') no-repeat center;
     }
 }
 
 .hero-inner {
-    position: relative; /* To display all elements above the background color */
+  display: flex;
+  position: relative;
+}
+
+.hero-copy {
+    margin: auto;
 }
 
 .hero-title {
     @include font-weight(bold);
+    margin-bottom: 2rem;
 }
 
 .hero-paragraph {
-    margin-bottom: 32px;
+    margin-bottom: 0;
 }
 
-.hero-illustration {
-    margin-top: 40px;
-    padding-bottom: 40px;
+.hero-action-form-container {
+    position: absolute;
+    bottom: -2rem;
+    width: 100%;
 
-	img,
-    svg {
-        width: 100%;
-        max-width: 320px;
-        height: auto;
-        margin: 0 auto;
-        overflow: visible;
-        box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12), 0 3px 5px -1px rgba(0, 0, 0, .2);
+    .hero-action-form {
+        background: #fff;
+        border-radius: 1rem;
+        box-shadow: 0 8px 16px rgba(color(typography, 1i), .12);
+        display: inline-flex;
+        margin: auto;
+        padding: 1.2rem 1.6rem;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        max-width: 90%;
+
+        p {
+            color: color(typography,2i);
+            padding: 0 .8rem;
+            margin: 8px;
+            width: 100%;
+        }
     }
 }
 
 @include media( '>medium' ) {
 
     .hero {
-        text-align: left;
         padding-top: 92px;
         padding-bottom: 80px;
-
-        &::before {
-            left: 620px;
-            height: 800px;
-            width: 100%;
-        }
     }
 
-    .hero-inner {
-        /* Split hero in two half */
-        display: flex;
-    }
-
-    .hero-copy {
-        padding-right: 48px;
-        min-width: 512px;
-    }
-
-    .hero-illustration {
-        margin-top: -68px;
-        padding-bottom: 0;
-
-		img,
-        svg {
-            max-width: none;
-            width: 528px;
-        }
+    .hero-action-form-container .hero-action-form p {
+        margin: 0;
+        width: 50%;
     }
 }
 
 @include media( '>large' ) {
 
     .hero {
-
-        &::before {
-            left: auto;
-            width: 43%;
-        }
-    }
-
-    .hero-copy {
-        padding-right: 88px;
-        min-width: 552px;
+        height: 90vh;
     }
 }

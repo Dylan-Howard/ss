@@ -1,6 +1,10 @@
 .site-header {
-    position: relative;
-    padding: 24px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    padding: 24px 0
 }
 
 .site-header-inner {
@@ -8,17 +12,57 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-direction: column;
+
+    .brand {
+        background: #fff;
+        width: 100%;
+    }
+
+    a:not(.button) {
+        text-decoration: none;
+        @include font-weight(bold);
+        opacity: .8;
+        transition: opacity .3s cubic-bezier(0.5, -0.01, 0, 1.005);
+
+        &:hover {
+            opacity: 1;
+        }
+    }
 }
 
 .header-links {
     display: inline-flex;
+    flex-direction: column;
+    width: 100%;
+    background: #fff;
+    position: absolute;
+
+    z-index: -1;
+
+    &:first-child {
+        margin-top: 27px;
+    }
+
+    &::before {
+      content: '';
+      background: #fff;
+      position: absolute;
+      top: 0;
+      left: -16px;
+      height: calc(100% + 27px);
+      width: 100vw;
+
+      // trans
+    }
 
     li {
-        display: inline-flex;
+        text-align: center;
+        width: 100%
     }
 
     a:not(.button) {
-        @include font-family(heading);
+        @include font-family(base);
         @include font-size(7, mobile, true, true, true);
         @if ( get-font-size(7, desktop) != get-font-size(7, mobile) ) {
             @include media( '>medium' ) {
@@ -27,7 +71,60 @@
         }
         @include font-weight(bold);
         @include anchor-aspect(header);
+        color: color(typography,1);
         line-height: 16px;
-        padding: 8px 24px;
+        padding: 8px 16px;
+        opacity: .8;
+        transition: opacity .3s cubic-bezier(0.5, -0.01, 0, 1.005);
+
+        &:hover {
+            color: color(typography,1);
+            opacity: 1;
+        }
+    }
+}
+
+.header-shrink {
+  background: #fff;
+  border-bottom: 1px solid #d8d8d8;
+
+  a:not(.button) {
+      color: color(typography,1i);
+      transition: color .3s cubic-bezier(0.5, -0.01, 0, 1.005);
+
+      &:hover {
+          color: color(primary,1);
+      }
+  }
+}
+
+@include media( '>medium' ) {
+
+    .site-header-inner {
+        flex-direction: row;
+
+        .brand {
+            width: auto
+        }
+
+        .header-links {
+            background: none;
+            display: inline-flex;
+            flex-direction: row;
+            position: relative;
+            width: auto;
+
+            &::before {
+              display: none
+            }
+
+            li {
+                width: auto
+            }
+
+            &:first-child {
+                margin-top: 0
+            }
+        }
     }
 }

@@ -1,0 +1,102 @@
+.contact {
+    padding: 3rem 0;
+
+    .section-title {
+        color: color(typography,1i);
+        margin-bottom: 16px;
+    }
+    .section-description {
+        color: color(typography,2i);
+        margin: auto auto 48px;
+        width: 70%
+    }
+}
+
+.contact-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 3rem 12px;
+    margin-right: -12px;
+    margin-left: -12px;
+}
+
+.contact-content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: color(bg, 1);
+    color: color(typography,2i);
+    padding: 40px 24px;
+    width: 100%;
+
+    .contact-content-inner {
+        display: block;
+        margin: auto;
+    }
+}
+
+.contact-picture {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    max-height: 50vh;
+    @include shadow;
+
+    img {
+      display: block;
+      height: auto;
+      max-width: 100%;
+    }
+}
+
+.contact-title {
+    color: color(typography,1i);
+    margin-top: 12px;
+    margin-bottom: 8px;
+}
+
+@include media( '>medium' ) {
+
+    .contact {
+        position: relative;
+
+        .section-square {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 240px;
+            width: 44%;
+            background: color(bg, 2);
+        }
+
+        .contact-content {
+            padding: 40px 2rem;
+            width: 50%;
+        }
+
+        .section-title {
+            margin-bottom: 24px;
+        }
+
+        .contact-picture {
+            // cursor: pointer;
+            display: flex;
+            justify-content: center;
+            width: 50%;
+        }
+
+        a:not(.button) {
+            color: color(primary,1);
+            text-decoration: none;
+            transition: color .3s cubic-bezier(0.5, -0.01, 0, 1.005);
+
+            &:hover {
+                color: color(secondary,1)
+            }
+        }
+    }
+}

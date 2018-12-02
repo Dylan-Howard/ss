@@ -1,0 +1,116 @@
+.schedule {
+    position: relative;
+    overflow: hidden;
+
+    .section-title {
+        color: color(typography,1i);
+        margin-bottom: 16px;
+    }
+    .section-description {
+        color: color(typography,2i);
+        margin: auto auto 48px;
+        width: 70%
+    }
+}
+
+.schedule-tables-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-right: -12px;
+    margin-left: -12px;
+
+    &:first-child {
+        margin-top: -12px;
+    }
+
+    &:last-child {
+        margin-bottom: -12px;
+    }
+}
+
+.schedule-table {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    color: color(typography,2i);
+    padding: 40px 24px;
+    position: relative;
+    width: 100%;
+}
+
+.schedule-table-inner {
+    flex-wrap: wrap;
+    padding: 24px;
+    width: 100%;
+    @include divider(after);
+
+    .schedule-table-title {
+        @if ( get-font-family(heading) != get-font-family(base) ) {
+            @include font-family(heading);
+        }
+        color: color(typography, 1i)
+    }
+
+    ul {
+        list-style: none;
+        padding: 1rem 0;
+        margin: 0;
+
+        li {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    p {
+        color: color(typography, 2i);
+        display: inline-block;
+    }
+
+    // &::before {
+    //     content: '';
+    //     position: absolute;
+    //     top: 0;
+    //     right: 0;
+    //     bottom: 0;
+    //     left: 0;
+    //     @include shadow;
+    //     mix-blend-mode: multiply;
+    // }
+}
+
+.schedule-table {
+    // @include divider(after);
+}
+
+.schedule-table-title {
+    @if ( get-font-family(heading) != get-font-family(base) ) {
+        @include font-family(heading);
+    }
+    color: color(typography, 1i);
+    margin: 0 0 12px
+}
+
+@include media( '>medium' ) {
+
+    .schedule {
+
+        .section-square {
+            position: absolute;
+            top: calc(100% - 440px);
+            right: 0;
+            height: 240px;
+            width: 44%;
+            background: color(bg, 2)
+        }
+
+        .section-title {
+            margin-bottom: 64px
+        }
+
+        .schedule-table {
+            width: 46%
+        }
+    }
+}

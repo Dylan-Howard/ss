@@ -1,4 +1,4 @@
-.features {
+.services {
     padding: 3rem 0;
 
     .section-title {
@@ -12,10 +12,10 @@
     }
 }
 
-.features-wrap {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+.services-wrap {
+    // display: flex;
+    // flex-wrap: wrap;
+    // justify-content: center;
     margin-right: -12px;
     margin-left: -12px;
 
@@ -28,27 +28,52 @@
     }
 }
 
-.feature {
-    padding: 12px;
-    width: 276px;
-    max-width: 276px;
-    flex-grow: 1;
+.service {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    padding: 3rem 12px;
 }
 
-.feature-inner {
-    height: 100%;
+.service-content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    // height: 100%;
     background: color(bg, 1);
     color: color(typography,2i);
     padding: 40px 24px;
-    @include shadow;
+    width: 100%;
+
+    .service-content-inner {
+        display: block;
+        margin: auto;
+    }
 }
 
-.feature-icon {
+.service-reverse {
+  flex-direction: row-reverse;
+}
+
+.service-picture {
     display: flex;
     justify-content: center;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    max-height: 50vh;
+    @include shadow;
+
+    img {
+      display: block;
+      height: auto;
+      max-width: 100%;
+    }
 }
 
-.feature-title {
+.service-title {
     color: color(typography,1i);
     margin-top: 12px;
     margin-bottom: 8px;
@@ -56,7 +81,7 @@
 
 @include media( '>medium' ) {
 
-    .features {
+    .services {
         position: relative;
 
         .section-square {
@@ -68,8 +93,18 @@
             background: color(bg, 2);
         }
 
+        .service-content {
+            width: 50%;
+        }
+
         .section-title {
             margin-bottom: 24px;
+        }
+
+        .service-picture {
+            display: flex;
+            justify-content: center;
+            width: 50%;
         }
     }
 }

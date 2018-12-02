@@ -1,0 +1,107 @@
+.questions {
+    position: relative;
+    overflow: hidden;
+
+    // &::before {
+    //     content: '';
+    //     position: absolute;
+    //     top: calc(100% - 200px);
+    //     left: 0;
+    //     width: 100%;
+    //     height: 200px;
+    //     background: color(typography, 1i);
+    //     overflow: hidden;
+    // }
+
+    .section-title {
+        color: color(typography,1i);
+        margin-bottom: 16px;
+    }
+}
+
+.questions-table {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 0 1rem
+}
+
+.question {
+    display: inline-block;
+    width: 100%;
+    // min-width: 450px;
+    vertical-align: top;
+
+
+    .question-title {
+        @if ( get-font-family(heading) != get-font-family(base) ) {
+            @include font-family(heading);
+        }
+        color: color(typography, 1i);
+    }
+
+    p {
+        color: color(typography, 2i);
+        padding-left: 1rem;
+        position: relative;
+        overflow-y: hidden;
+
+        &::before {
+            content: '';
+            background: color(primary,1);
+            display: block;
+            margin: 0 8px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: .8;
+            height: 100%;
+            width: 2px;
+
+            transition: transform 1s cubic-bezier(0.5, -0.01, 0, 1.005);
+            transform: translate3d(0,-100%,0)
+        }
+    }
+
+    &.active p::before {
+        transform: translate3d(0,0,0)
+    }
+
+    a {
+        color: color(primary,1);
+        text-decoration: none;
+        transition: color .3s cubic-bezier(0.5, -0.01, 0, 1.005);
+
+        &:hover {
+            color: color(secondary,2);
+        }
+    }
+}
+
+@include media( '>medium' ) {
+
+    .questions {
+
+        .section-square {
+            position: absolute;
+            top: calc(100% - 440px);
+            right: 0;
+            height: 240px;
+            width: 44%;
+            background: color(bg, 2);
+        }
+
+        .section-title {
+            margin-bottom: 24px;
+        }
+
+        .questions-table {
+            padding: 0 2rem
+        }
+
+        .question {
+            width: 45%;
+            min-width: 450px;
+        }
+    }
+}
