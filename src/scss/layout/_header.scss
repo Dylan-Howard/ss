@@ -16,7 +16,18 @@
 
     .brand {
         background: #fff;
+        position: relative;
         width: 100%;
+
+        &::before {
+            content: '';
+            background: #fff;
+            height: 76px;
+            width: 100%;
+            position: absolute;
+            top: -100%;
+            left: 0
+        }
     }
 
     a:not(.button) {
@@ -37,8 +48,14 @@
     width: 100%;
     background: #fff;
     position: absolute;
-
+    top: 50px;
     z-index: -1;
+    transition: transform .3s cubic-bezier(0.5, -0.01, 0, 1.005);
+    transform: translate3d(0,calc(-100% - 50px),0);
+
+    &.header-open {
+        transform: translate3d(0,0,0)
+    }
 
     &:first-child {
         margin-top: 27px;
@@ -98,6 +115,13 @@
   }
 }
 
+.header-open {
+
+    .header-links {
+        transform: translate3d(0,0,0)
+    }
+}
+
 @include media( '>medium' ) {
 
     .site-header-inner {
@@ -113,6 +137,7 @@
             flex-direction: row;
             position: relative;
             width: auto;
+            transform: translate3d(0,0,0);
 
             &::before {
               display: none
